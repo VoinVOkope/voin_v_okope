@@ -1,0 +1,156 @@
+﻿<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta charset="UTF-8">
+			<meta name="viewport" content="width=device-width, initial-scale=1.0">
+				<title>Company Empire | Voin_V_Okope</title>
+
+				<style>
+					* {
+					box-sizing: border-box;
+					}
+
+					body {
+					margin: 0;
+					background: #10141b;
+					color: white;
+					font-family: Arial, sans-serif;
+					}
+
+					header {
+					padding: 24px 8%;
+					background: #191f29;
+					border-bottom: 1px solid #303846;
+					}
+
+					a {
+					color: #70a9ff;
+					text-decoration: none;
+					}
+
+					main {
+					max-width: 900px;
+					margin: auto;
+					padding: 60px 24px;
+					}
+
+					.label {
+					color: #70a9ff;
+					letter-spacing: 3px;
+					font-size: 12px;
+					}
+
+					h1 {
+					font-size: clamp(36px, 7vw, 60px);
+					margin-bottom: 16px;
+					}
+
+					p {
+					color: #aab5c5;
+					line-height: 1.8;
+					}
+
+					.panel {
+					margin-top: 35px;
+					padding: 25px;
+					background: #191f29;
+					border: 1px solid #303846;
+					border-radius: 8px;
+					}
+
+					.status {
+					color: #70a9ff;
+					font-weight: bold;
+					}
+				</style>
+			</head>
+	<body>
+		<header>
+			<strong>COMPANY EMPIRE</strong>
+
+			<span style="float: right;">
+				<a href="HTMLPage1.html"
+				   data-en="Back to Home"
+				   data-ru="На главную">
+					Back to Home
+				</a>
+			</span>
+		</header>
+
+		<main>
+			<div class="label"
+				 data-en="Company Empire"
+				 data-ru="Компания Империи">
+				Company Empire
+			</div>
+
+			<h1
+			  data-en="Company Empire"
+			  data-ru="Компания Империи">
+				Company Empire
+			</h1>
+
+			<p
+			  data-en="Company Empire is the first project by Voin. We are working on bringing our vision to life."
+			  data-ru="Компания Империи — первый проект Воина. Мы работаем над воплощением нашей идеи в жизнь.">
+				Company Empire is the first project by Voin. We are working on bringing our vision to life.
+			</p>
+
+			<div class="panel">
+				<div class="status"
+					 data-en="IN DEVELOPMENT"
+					 data-ru="В РАЗРАБОТКЕ">
+					IN DEVELOPMENT
+				</div>
+
+				<h2
+				  data-en="About the Game"
+				  data-ru="Об игре">
+					About the Game
+				</h2>
+
+				<p
+				  data-en="More information about the game, its gameplay and features will be announced soon."
+				  data-ru="Дополнительная информация об игре, её игровом процессе и особенностях появится позже.">
+					More information about the game, its gameplay and features will be announced soon.
+				</p>
+			</div>
+
+			<p>
+				<a href="HTMLPage1.html"
+				   data-en="← Return to the main page"
+				   data-ru="← Вернуться на главную страницу">
+					← Return to the main page
+				</a>
+			</p>
+		</main>
+
+		<script>
+			let currentLanguage =
+			localStorage.getItem("siteLanguage") || "en";
+
+			function setLanguage(lang) {
+			currentLanguage = lang;
+			document.documentElement.lang = lang;
+
+			document.querySelectorAll("[data-ru][data-en]").forEach(element => {
+			element.textContent = element.dataset[lang];
+			});
+
+			const button = document.getElementById("languageButton");
+
+			if (button) {
+			button.textContent = lang === "en" ? "RU" : "EN";
+			}
+			}
+
+			function toggleLanguage() {
+			const newLanguage = currentLanguage === "en" ? "ru" : "en";
+			localStorage.setItem("siteLanguage", newLanguage);
+			setLanguage(newLanguage);
+			}
+
+			setLanguage(currentLanguage);
+		</script>
+	</body>
+</html>

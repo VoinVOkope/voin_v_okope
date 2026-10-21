@@ -1,0 +1,428 @@
+﻿<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+		<meta charset="UTF-8">
+			<meta name="viewport" content="width=device-width, initial-scale=1.0">
+				<title>Voin_V_Okope</title>
+
+				<style>
+					* {
+					box-sizing: border-box;
+					}
+
+					body {
+					margin: 0;
+					background: #10141b;
+					color: #ffffff;
+					font-family: Arial, sans-serif;
+					}
+
+					header {
+					height: 75px;
+					padding: 0 8%;
+					background: #191f29;
+					display: flex;
+					align-items: center;
+					justify-content: space-between;
+					border-bottom: 1px solid #303846;
+					}
+
+					.logo {
+					font-size: 22px;
+					font-weight: bold;
+					letter-spacing: 1px;
+					}
+
+					nav a {
+					color: #b9c2d0;
+					text-decoration: none;
+					margin-left: 24px;
+					font-size: 14px;
+					}
+
+					nav a:hover {
+					color: #5c9cff;
+					}
+
+					.hero {
+					min-height: 430px;
+					display: flex;
+					flex-direction: column;
+					justify-content: center;
+					align-items: center;
+					text-align: center;
+					padding: 40px 20px;
+					background:
+					radial-gradient(ellipse at 50% 0%, #304d78 0%, #182438 40%, #10141b 75%);
+					position: relative;
+					overflow: hidden;
+					}
+
+					.label {
+					color: #70a9ff;
+					letter-spacing: 4px;
+					font-size: 12px;
+					}
+
+					h1 {
+					font-size: clamp(36px, 7vw, 64px);
+					margin: 20px 0;
+					}
+
+					.hero p {
+					max-width: 520px;
+					color: #aab5c5;
+					line-height: 1.7;
+					}
+
+					.button {
+					display: inline-block;
+					margin-top: 20px;
+					padding: 14px 30px;
+					background: #397cf6;
+					color: white;
+					text-decoration: none;
+					font-weight: bold;
+					border-radius: 5px;
+					}
+
+					.button:hover {
+					background: #6095ff;
+					}
+
+					.section {
+					padding: 35px 8%;
+					}
+
+					.section h2 {
+					font-size: 26px;
+					}
+
+					.game-card {
+					max-width: 600px;
+					padding: 25px;
+					background: #191f29;
+					border: 1px solid #303846;
+					border-radius: 8px;
+					}
+
+					.game-card {
+					transition: transform 0.25s ease, border-color 0.25s ease,
+					box-shadow 0.25s ease;
+					}
+
+					.game-card:hover {
+					transform: translateY(-5px);
+					border-color: #397cf6;
+					box-shadow: 0 10px 30px rgba(57, 124, 246, 0.15);
+					}
+
+					.game-card p {
+					color: #aab5c5;
+					line-height: 1.6;
+					}
+
+					.status {
+					color: #70a9ff;
+					font-size: 12px;
+					text-transform: uppercase;
+					}
+
+					footer {
+					padding: 25px 8%;
+					border-top: 1px solid #303846;
+					color: #7f8a9a;
+					font-size: 13px;
+					}
+
+					@media (max-width: 600px) {
+					header {
+					padding: 0 5%;
+					}
+
+					.logo {
+					font-size: 17px;
+					}
+
+					nav a {
+					margin-left: 10px;
+					font-size: 12px;
+					}
+
+					.section {
+					padding: 25px 5%;
+					}
+					}
+
+					.hero .label,
+					.hero h1,
+					.hero p,
+					.hero .button {
+					animation: fadeUp 0.8s ease both;
+					}
+
+					.hero h1 {
+					animation-delay: 0.1s;
+					text-shadow: 0 0 35px rgba(57, 124, 246, 0.25);
+					}
+
+					.hero p {
+					animation-delay: 0.2s;
+					}
+
+					.hero .button {
+					animation-delay: 0.3s;
+					}
+
+					@keyframes fadeUp {
+					from {
+					opacity: 0;
+					transform: translateY(18px);
+					}
+
+					to {
+					opacity: 1;
+					transform: translateY(0);
+					}
+					}
+
+					.social-links {
+					display: flex;
+					gap: 10px;
+					margin-top: 20px;
+					width: fit-content;
+					}
+
+					.social-button {
+					display: inline-flex;
+					align-items: center;
+					justify-content: center;
+					width: 60px;
+					height: 60px;
+					padding: 0;
+					margin: 0;
+					flex: 0 0 60px;
+					box-sizing: border-box;
+					background: #191f29;
+					border: 1px solid #303846;
+					border-radius: 9px;
+					color: #70a9ff;
+					transition: 0.25s ease;
+					}
+
+					.social-button:hover {
+					background: #229ED9;
+					color: white;
+					border-color: #229ED9;
+					transform: translateY(-3px);
+					}
+
+					.social-button img {
+					width: 40px;
+					height: 40px;
+					display: block;
+					flex-shrink: 0;
+					}
+
+					.hero {
+					position: relative;
+					overflow: hidden;
+					isolation: isolate;
+					}
+
+					.hero-video {
+					position: absolute;
+					inset: 0;
+					width: 100%;
+					height: 100%;
+					object-fit: fill;
+					z-index: -2;
+					}
+
+					.hero::before {
+					content: "";
+					position: absolute;
+					inset: 0;
+					background:
+					radial-gradient(
+					ellipse at 50% 0%,
+					rgba(48, 77, 120, 0.75) 0%,
+					rgba(24, 36, 56, 0.65) 40%,
+					rgba(16, 20, 27, 0.88) 100%
+					);
+					z-index: -1;
+					pointer-events: none;
+					}
+				</style>
+			</head>
+
+	<body>
+
+		<header>
+			<div class="logo">Voin_V_Okope</div>
+
+			<nav>
+				<a href="#home" data-ru="ГЛАВНАЯ" data-en="HOME">HOME</a>
+				<a href="#games" data-ru="ИГРЫ" data-en="GAMES">GAMES</a>
+				<a href="#about" data-ru="О НАС" data-en="ABOUT">ABOUT</a>
+
+				<button id="languageButton" onclick="toggleLanguage()"
+				  style="margin-left:20px;padding:7px 12px;background:#27364c;color:white;border:1px solid #456080;border-radius:5px;cursor:pointer;">
+					RU
+				</button>
+			</nav>
+		</header>
+
+		<main>
+			<section class="hero" id="home">
+				<video class="hero-video" id="bgVideo"
+       autoplay="" muted="" playsinline="">
+					<source src="background.mp4" type="video/mp4">
+</video>
+				<div class="label">Mapper,Blogger,Editor,Programmer</div>
+
+				<h1 data-ru="Посмотри на мою работу."
+    data-en="Look at my work.">Look at my work.</h1>
+
+				<p
+  data-en="I create games, maps and digital projects."
+  data-ru="Я создаю игры, карты и цифровые проекты."
+>
+					I create games, maps and digital projects.
+				</p>
+
+				<a class="button" href="#games"
+   data-en="EXPLORE"
+   data-ru="ИЗУЧИТЬ">
+					EXPLORE
+				</a>
+			</section>
+
+			<section class="section" id="games">
+
+				<h2 data-en="Games" data-ru="Игры">Games</h2>
+								
+				<div class="game-card" style="display:block;color:inherit;text-decoration:none;">
+
+					<div class="status">IN DEVELOPMENT</div>
+					<h3>Company Empire</h3>
+					<p>
+
+						<a href="game.html" class="button"
+   data-en="View Project"
+   data-ru="Смотреть проект"
+   onclick="localStorage.setItem('siteLanguage', document.documentElement.lang)">
+							View Project
+						</a>
+						<p
+  data-en="Our first project is currently in development."
+  data-ru="Наш первый проект находится в разработке.">
+							Our first project is currently in development.
+						</p>
+						</div>
+					</p>
+				</div>
+			</section>
+
+			<section class="section" id="about">
+				<h2 data-en="About Us" data-ru="Обо мне">About Us</h2>
+
+				<p
+				  data-en="Voin makes a quality product."
+				  data-ru="Воин создаёт качественный продукт."
+>
+					Voin makes a quality product.
+
+					<div class="social-links">
+						<a href="https://t.me/Voin_V_Okope_Off"
+						   target="_blank"
+						   rel="noopener noreferrer"
+						   class="social-button"
+						   aria-label="Telegram"
+						   title="Telegram">
+						<img src="Telegram.svg" alt="Telegram">
+												
+						</a>
+						<a href="https://www.youtube.com/@saratovskiimaper"
+   target="_blank"
+   rel="noopener noreferrer"
+   class="social-button"
+   aria-label="YouTube"
+   title="YouTube">
+							<img src="YouTube.svg" alt="YouTube">						
+							
+						</a>
+						<a href="https://www.tiktok.com/@voin_v_okope"
+   target="_blank"
+   rel="noopener noreferrer"
+   class="social-button"
+   aria-label="TikTok"
+   title="TikTok">
+							<img src="Tiktok.svg" alt="Tiktok">
+						</a>
+					</div>
+				</p>
+			</section>
+		</main>
+
+		<footer>
+			&copy; 2026 Voin_V_Okope. All rights reserved.
+		</footer>
+		<script>
+			const videos = [
+			"background.mp4",
+			"background2.mp4",
+			"background3.mp4",
+			"background4.mp4"
+			];
+
+			let currentVideo = 0;
+			const video = document.getElementById("bgVideo");
+
+			video.addEventListener("ended", function () {
+			currentVideo = (currentVideo + 1) % videos.length;
+			video.src = videos[currentVideo];
+			video.play();
+			});
+		</script>
+	</body>
+</html>
+		}  
+	</style>	
+</head>
+<script>
+	let currentLanguage = "en";
+
+	function toggleLanguage() {
+	currentLanguage = currentLanguage === "en" ? "ru" : "en";
+
+	document.documentElement.lang = currentLanguage;
+
+	document.querySelectorAll("[data-ru][data-en]").forEach(element => {
+	element.textContent = element.dataset[currentLanguage];
+	});
+
+	document.getElementById("languageButton").textContent =
+	currentLanguage === "en" ? "RU" : "EN";
+	}
+</script>
+<script>
+	(function () {
+	const buttons = document.querySelectorAll(
+	'[data-lang], [onclick*="setLanguage"]'
+	);
+
+	buttons.forEach(button => {
+	button.addEventListener('click', function () {
+	const lang = button.dataset.lang ||
+	button.getAttribute('onclick').match(/ru|en/i)?.[0];
+
+	if (lang) {
+	localStorage.setItem('siteLanguage', lang.toLowerCase());
+	}
+	});
+	});
+	})();
+</script>
+      </body>
+</html>
